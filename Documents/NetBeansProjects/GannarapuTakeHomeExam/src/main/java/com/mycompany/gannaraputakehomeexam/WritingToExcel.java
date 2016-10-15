@@ -74,6 +74,7 @@ public class WritingToExcel {
         XSSFCellStyle my_style = (XSSFCellStyle) workbook.createCellStyle();     
         /* Create XSSFFont object from the workbook */
         XSSFFont my_font=(XSSFFont) workbook.createFont();
+        XSSFFont font=(XSSFFont) workbook.createFont();
         
         
         /*
@@ -88,9 +89,12 @@ public class WritingToExcel {
          setting Header color
         */
         CellStyle style2 = workbook.createCellStyle();
-	style2.setFillForegroundColor(IndexedColors.DARK_RED.getIndex());
-	style2.setFillPattern(CellStyle.SOLID_FOREGROUND);
-            
+        font.setBoldweight(XSSFFont.BOLDWEIGHT_BOLD);
+        style2.setFont(font);
+        style2.setAlignment(CellStyle.ALIGN_CENTER);
+//	style2.setFillForegroundColor(IndexedColors.DARK_RED.getIndex());
+//	style2.setFillPattern(CellStyle.SOLID_FOREGROUND);
+//            
         
         Row rowName = songsSheet.createRow(1);
         
@@ -131,13 +135,13 @@ public class WritingToExcel {
 
         Row rowMain = songsSheet.createRow(3);
         SheetConditionalFormatting sheetCF = songsSheet.getSheetConditionalFormatting();
-        ConditionalFormattingRule rule1 = sheetCF.createConditionalFormattingRule("3");
+        ConditionalFormattingRule rule1 = sheetCF.createConditionalFormattingRule("4");
         PatternFormatting fill1 = rule1.createPatternFormatting();
         fill1.setFillBackgroundColor(IndexedColors.RED.index);
         fill1.setFillPattern(PatternFormatting.SOLID_FOREGROUND);
 
         CellRangeAddress[] regions = {
-                CellRangeAddress.valueOf("A4:G4")
+                CellRangeAddress.valueOf("A4:F4")
         };
        
 
@@ -153,18 +157,18 @@ public class WritingToExcel {
         fill2.setFillPattern(PatternFormatting.SOLID_FOREGROUND);
 
          CellRangeAddress[] regionsAction = {
-            CellRangeAddress.valueOf("A5:G5"),
-            CellRangeAddress.valueOf("A6:G6"),
-            CellRangeAddress.valueOf("A7:G7"),
-            CellRangeAddress.valueOf("A8:G8"),
-            CellRangeAddress.valueOf("A13:G13"),
-            CellRangeAddress.valueOf("A14:G14"),
-            CellRangeAddress.valueOf("A15:G15"),
-            CellRangeAddress.valueOf("A16:G16"),
-            CellRangeAddress.valueOf("A23:G23"),
-            CellRangeAddress.valueOf("A24:G24"),
-            CellRangeAddress.valueOf("A25:G25"),
-            CellRangeAddress.valueOf("A26:G26")
+            CellRangeAddress.valueOf("A5:F5"),
+            CellRangeAddress.valueOf("A6:F6"),
+            CellRangeAddress.valueOf("A7:F7"),
+            CellRangeAddress.valueOf("A8:F8"),
+            CellRangeAddress.valueOf("A13:F13"),
+            CellRangeAddress.valueOf("A14:F14"),
+            CellRangeAddress.valueOf("A15:F15"),
+            CellRangeAddress.valueOf("A16:F16"),
+            CellRangeAddress.valueOf("A23:F23"),
+            CellRangeAddress.valueOf("A24:F24"),
+            CellRangeAddress.valueOf("A25:F25"),
+            CellRangeAddress.valueOf("A26:F26")
                 
         };
          
@@ -178,19 +182,19 @@ public class WritingToExcel {
         fill3.setFillPattern(PatternFormatting.SOLID_FOREGROUND);
 
          CellRangeAddress[] regionsAdv = {
-             CellRangeAddress.valueOf("A9:G9"),
-             CellRangeAddress.valueOf("A10:G10"),
-             CellRangeAddress.valueOf("A11:G11"),
-             CellRangeAddress.valueOf("A12:G12"),
-             CellRangeAddress.valueOf("A17:G17"),
-             CellRangeAddress.valueOf("A18:G18"),
-             CellRangeAddress.valueOf("A19:G19"),
-             CellRangeAddress.valueOf("A20:G20"),
-             CellRangeAddress.valueOf("A21:G21"),
-             CellRangeAddress.valueOf("A22:G22"),           
-             CellRangeAddress.valueOf("A27:G27"),
-             CellRangeAddress.valueOf("A28:G28"),
-             CellRangeAddress.valueOf("A29:G29")        
+             CellRangeAddress.valueOf("A9:F9"),
+             CellRangeAddress.valueOf("A10:F10"),
+             CellRangeAddress.valueOf("A11:F11"),
+             CellRangeAddress.valueOf("A12:F12"),
+             CellRangeAddress.valueOf("A17:F17"),
+             CellRangeAddress.valueOf("A18:F18"),
+             CellRangeAddress.valueOf("A19:F19"),
+             CellRangeAddress.valueOf("A20:F20"),
+             CellRangeAddress.valueOf("A21:F21"),
+             CellRangeAddress.valueOf("A22:F22"),           
+             CellRangeAddress.valueOf("A27:F27"),
+             CellRangeAddress.valueOf("A28:F28"),
+             CellRangeAddress.valueOf("A29:F29")        
         };
        
 
@@ -208,13 +212,24 @@ public class WritingToExcel {
         */
         int mainCellIndex = 0;
       
-        rowMain.createCell(mainCellIndex++).setCellValue("SNO");
-        rowMain.createCell(mainCellIndex++).setCellValue("Genre");
-        rowMain.createCell(mainCellIndex++).setCellValue("Rating");
-        rowMain.createCell(mainCellIndex++).setCellValue("Movie Name");
-        rowMain.createCell(mainCellIndex++).setCellValue("Director");
-        rowMain.createCell(mainCellIndex++).setCellValue("Release Date");
-        rowMain.createCell(mainCellIndex++).setCellValue("Budget");
+      Cell SNO = rowMain.createCell(mainCellIndex++);
+        SNO.setCellValue("SNO");
+        SNO.setCellStyle(style2);
+        Cell gen = rowMain.createCell(mainCellIndex++);
+        gen.setCellValue("Genre");
+        gen.setCellStyle(style2);
+        Cell credit = rowMain.createCell(mainCellIndex++);
+        credit.setCellValue("Credit Score");
+        credit.setCellStyle(style2);
+        Cell name = rowMain.createCell(mainCellIndex++);
+        name.setCellValue("Album Name");
+        name.setCellStyle(style2);
+        Cell art = rowMain.createCell(mainCellIndex++);
+        art.setCellValue("Artist");
+        art.setCellStyle(style2);
+        Cell release = rowMain.createCell(mainCellIndex++);
+        release.setCellValue("Release Date");
+        release.setCellStyle(style2);
         
         
         
