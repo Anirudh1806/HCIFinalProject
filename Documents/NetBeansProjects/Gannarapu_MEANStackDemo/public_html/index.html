@@ -32,23 +32,23 @@ and open the template in the editor.
               <label>FirstName:</label>      
               <div class ="form-group input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input type = "text" class="form-control" ng-model="fname" placeholder="Enter First Name" required/>
+                  <input type = "text" name="fname" class="form-control" ng-model="fname" placeholder="Enter First Name" required/>
               </div>
               <label>LastName:</label>
               <div class="form-group input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input type = "text" class="form-control" ng-model="lname" placeholder="Enter Last Name" required/>
+                  <input type = "text" name="lname" class="form-control" ng-model="lname" placeholder="Enter Last Name" required/>
               </div>
               <label>Email:</label>
               <div class="form-group input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                  <input type = "email" class="form-control" ng-model="email" placeholder="Enter email ID" required="true">
+                  <input type = "email" name="email" class="form-control" ng-model="email" placeholder="Enter email ID" required="true">
                   <p ng-show="nestedForm.email.$invalid && !nestedForm.email.$pristine" class="help-block">Enter a valid email.</p>
               </div>
               <label>Phone:</label>
               <div class="form-group input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                  <input type = "text" class="form-control" ng-model="phone" placeholder="Enter Phone Number" required/>
+                  <input type = "text" name="phone" class="form-control" ng-model="phone" placeholder="Enter Phone Number" required/>
               </div>
                   
 
