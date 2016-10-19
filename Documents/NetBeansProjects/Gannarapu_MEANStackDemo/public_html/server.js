@@ -26,12 +26,14 @@ app.get('/index',function(req,res){
 
 app.post('/index',function(req,res){
 	var newUser = {
-	email: req.body.email,
-	firstname: req.body.fname,
-	lastname:req.body.lname,
-	phone:req.body.phone,        
-   date: req.body.dt,
-   dateTo: req.body.dt1
+            email: req.body.email,
+            firstname: req.body.fname,
+            lastname:req.body.lname,
+            phone:req.body.phone,
+//            from: req.body.selectedOption.valueOf().valueOf(),
+//            to:req.body.selectedOptionTo.toString().valueOf(),
+            date: req.body.dt,
+            dateTo: req.body.dt1
 	};
 	mongoClient.connect(url,function(err,db){
 		if (err){
