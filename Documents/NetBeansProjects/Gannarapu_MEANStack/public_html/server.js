@@ -30,7 +30,7 @@ app.post('/index',function(req,res){
             firstname: req.body.fname,
             lastname:req.body.lname,
             phone:req.body.phone,
-//            from: req.body.selectedOption.valueOf().valueOf(),
+//            from: req.body.selectedOption.valueOf().toLocaleString(),
 //            to:req.body.selectedOptionTo.toString().valueOf(),
             date: req.body.dt,
             dateTo: req.body.dt1
