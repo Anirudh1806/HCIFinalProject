@@ -120,7 +120,7 @@ public class WritingToExcel {
        /*
        Applying underline to Name
        */
-        my_font.setUnderline(XSSFFont.U_SINGLE);
+        my_font.setUnderline(XSSFFont.U_DOUBLE);
         my_style.setFont(my_font);
         /* Attaching the style to the cell */
         CellStyle combined = workbook.createCellStyle();
@@ -135,7 +135,7 @@ public class WritingToExcel {
 
         Row rowMain = songsSheet.createRow(3);
         SheetConditionalFormatting sheetCF = songsSheet.getSheetConditionalFormatting();
-        ConditionalFormattingRule rule1 = sheetCF.createConditionalFormattingRule("4");
+        ConditionalFormattingRule rule1 = sheetCF.createConditionalFormattingRule("5");
         PatternFormatting fill1 = rule1.createPatternFormatting();
         fill1.setFillBackgroundColor(IndexedColors.RED.index);
         fill1.setFillPattern(PatternFormatting.SOLID_FOREGROUND);
